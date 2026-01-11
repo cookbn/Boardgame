@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.2">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1">&lt;title&gt;Board Game Picker&lt;/title&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;style id="theme"&gt;</p>
+<p class="p1">:root {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--bg:#0f172a;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--card:#1e293b;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--accent:#38bdf8;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--danger:#ef4444;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--text:#e5e7eb;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--muted:#94a3b8;</p>
+<p class="p1">}</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1">body {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin:0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-family:-apple-system,BlinkMacSystemFont,sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background:var(--bg);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color:var(--text);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">header {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding:1rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-align:center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size:1.4rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-weight:700;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>justify-content:space-between;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>align-items:center;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">select {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background:#020617;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color:var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border:none;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-radius:8px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding:.4rem;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">nav {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background:#020617;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">nav button {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>flex:1;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding:.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background:none;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border:none;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color:var(--text);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">nav button.active {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background:var(--card);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">section {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>display:none;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding:1rem;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">section.active { display:block; }</p>
+<p class="p2"><br></p>
+<p class="p1">.card {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background:var(--card);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-radius:14px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding:1rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom:1rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>box-shadow:0 10px 25px rgba(0,0,0,.3);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">input,button {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>width:100%;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding:.6rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin:.3rem 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-radius:10px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border:none;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">input {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background:#020617;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color:var(--text);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">button.primary {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background:var(--accent);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color:#020617;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-weight:700;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">button.danger {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background:var(--danger);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color:white;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.small { color:var(--muted); font-size:.85rem; }</p>
+<p class="p2"><br></p>
+<p class="p1">.row { display:flex; gap:.5rem; }</p>
+<p class="p2"><br></p>
+<p class="p1">.favorite { cursor:pointer; font-size:1.3rem; }</p>
+<p class="p2"><br></p>
+<p class="p1">.stars span { cursor:pointer; font-size:1.2rem; }</p>
+<p class="p2"><br></p>
+<p class="p1">.stat { margin:.5rem 0; }</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>🎲 Board Game Picker</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;select onchange="setTheme(this.value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;option value="dark"&gt;Dark&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;option value="light"&gt;Light&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;option value="wood"&gt;Wood&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/select&gt;</p>
+<p class="p1">&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button class="active" onclick="tab('picker')"&gt;Picker&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button onclick="tab('library')"&gt;Library&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button onclick="tab('add')"&gt;Add&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button onclick="tab('history')"&gt;History&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button onclick="tab('stats')"&gt;Stats&lt;/button&gt;</p>
+<p class="p1">&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;section id="picker" class="active"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input id="players" type="number" min="1" value="2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label&gt;&lt;input type="checkbox" id="favOnly"&gt; Favorites only&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="primary" onclick="pick()"&gt;Pick Game&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 id="picked" style="text-align:center;"&gt;&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;section id="library"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="libraryList"&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;section id="add"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input id="name" placeholder="Game name"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;input id="minP" placeholder="Min players" type="number"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;input id="maxP" placeholder="Max players" type="number"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input id="time" placeholder="Playtime (min)" type="number"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="primary" onclick="add()"&gt;Add Game&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;section id="history"&gt;&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;section id="stats"&gt;&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">let games = JSON.parse(localStorage.getItem("games")||"[]");</p>
+<p class="p1">let history = JSON.parse(localStorage.getItem("history")||"[]");</p>
+<p class="p1">let theme = localStorage.getItem("theme") || "dark";</p>
+<p class="p2"><br></p>
+<p class="p1">const themes = {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>dark: `:root{--bg:#0f172a;--card:#1e293b;--accent:#38bdf8;--text:#e5e7eb;--muted:#94a3b8}`,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>light:`:root{--bg:#f8fafc;--card:#ffffff;--accent:#2563eb;--text:#020617;--muted:#475569}`,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>wood:`:root{--bg:#3a2e24;--card:#5b4636;--accent:#facc15;--text:#fff7ed;--muted:#fde68a}`</p>
+<p class="p1">};</p>
+<p class="p2"><br></p>
+<p class="p1">function setTheme(t){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("theme").innerHTML = themes[t];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>localStorage.setItem("theme",t);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">setTheme(theme);</p>
+<p class="p2"><br></p>
+<p class="p1">function save(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>localStorage.setItem("games",JSON.stringify(games));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>localStorage.setItem("history",JSON.stringify(history));</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function tab(t){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.querySelectorAll("section").forEach(s=&gt;s.classList.remove("active"));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.querySelectorAll("nav button").forEach(b=&gt;b.classList.remove("active"));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById(t).classList.add("active");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>event.target.classList.add("active");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(t==="stats") renderStats();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function add(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>games.push({</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id:Date.now(), name:name.value,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>min:+minP.value, max:+maxP.value,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>time:+time.value, rating:0, favorite:false</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>name.value=minP.value=maxP.value=time.value="";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>save(); renderLibrary();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function renderLibrary(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>libraryList.innerHTML = games.map(g=&gt;`</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;strong&gt;${g.name}&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="favorite" onclick="g.favorite=!g.favorite;save();renderLibrary()"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>${g.favorite?"❤️":"🤍"}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="small"&gt;${g.min}-${g.max} players • ${g.time} min&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stars"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>${[1,2,3,4,5].map(i=&gt;`&lt;span onclick="g.rating=${i};save();renderLibrary()"&gt;${i&lt;=g.rating?"⭐":"☆"}&lt;/span&gt;`).join("")}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`).join("");</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function pick(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const p=+players.value;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>let pool=games.filter(g=&gt;p&gt;=g.min&amp;&amp;p&lt;=g.max);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(favOnly.checked) pool=pool.filter(g=&gt;g.favorite);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!pool.length){ picked.textContent="No match"; return; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const g=pool[Math.floor(Math.random()*pool.length)];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>picked.textContent=g.name;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>history.unshift({name:g.name,time:new Date().toLocaleString()});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>save(); renderHistory();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function renderHistory(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>history.innerHTML = history.map(h=&gt;`</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;strong&gt;${h.name}&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="small"&gt;${h.time}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`).join("");</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function renderStats(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const picks = {};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>history.forEach(h=&gt;picks[h.name]=(picks[h.name]||0)+1);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const most = Object.entries(picks).sort((a,b)=&gt;b[1]-a[1])[0];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>stats.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat"&gt;🎲 Total Games: ${games.length}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat"&gt;❤️ Favorites: ${games.filter(g=&gt;g.favorite).length}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat"&gt;⭐ Avg Rating: ${</p>
+<p class="p1"><span class="Apple-converted-space">        </span>(games.reduce((s,g)=&gt;s+g.rating,0)/Math.max(games.length,1)).toFixed(1)</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat"&gt;🔥 Most Picked: ${most?most[0]+" ("+most[1]+")":"—"}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat"&gt;🕒 Last Pick: ${history[0]?.name||"—"}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">renderLibrary();</p>
+<p class="p1">renderHistory();</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
